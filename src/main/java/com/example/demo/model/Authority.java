@@ -1,15 +1,20 @@
-package com.example.demo.repository;
+/**
+ *
+ */
+package com.example.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import com.example.demo.model.TodoItem;
-
-@Repository
-public interface TodoRepository extends JpaRepository<TodoItem, Long>
+/**
+ * @author RezaKhaleghi
+ *
+ */
+@Entity
+public class Authority
 {
-
+	@Id
+	private Long id;
 }
 
 /* ---------------------------------------------------------------------*
