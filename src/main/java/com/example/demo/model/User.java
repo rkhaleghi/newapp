@@ -3,17 +3,11 @@
  */
 package com.example.demo.model;
 
-import java.util.Collection;
-import java.util.Collections;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * @author RezaKhaleghi
@@ -21,7 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 @Table
 @Entity
-public class User implements UserDetails
+public class User
+//implements UserDetails
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +27,7 @@ public class User implements UserDetails
 	private String password;
 	private String username;
 	private boolean enabled;
-	private Authority authority;
+//	private Authority authority;
 
 	public User(Integer id, String firstName, String lastName, String email)
 	{
@@ -93,51 +88,59 @@ public class User implements UserDetails
 		this.email = email;
 	}
 
-	public Authority getAuthority()
-	{
-		return authority;
-	}
+//	public Authority getAuthority()
+//	{
+//		return authority;
+//	}
+//
+//	public void setAuthority(Authority authority)
+//	{
+//		this.authority = authority;
+//	}
 
-	public void setAuthority(Authority authority)
-	{
-		this.authority = authority;
-	}
 
-
-	public Collection<? extends GrantedAuthority> getAuthorities()
-	{
-		return Collections.singleton(() -> authority.getAuthority());
-	}
-
-	public String getPassword()
-	{
-		return password;
-	}
-
-	public String getUsername()
-	{
-		return username;
-	}
-
-	public boolean isAccountNonExpired()
-	{
-		return true;
-	}
-
-	public boolean isAccountNonLocked()
-	{
-		return true;
-	}
-
-	public boolean isCredentialsNonExpired()
-	{
-		return true;
-	}
-
-	public boolean isEnabled()
-	{
-		return true;
-	}
+//	@Override
+//	public Collection<? extends GrantedAuthority> getAuthorities()
+//	{
+//		return null;
+////		return Collections.singleton(() -> authority.getAuthority());
+//	}
+//
+//	@Override
+//	public String getPassword()
+//	{
+//		return password;
+//	}
+//
+//	@Override
+//	public String getUsername()
+//	{
+//		return username;
+//	}
+//
+//	@Override
+//	public boolean isAccountNonExpired()
+//	{
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isAccountNonLocked()
+//	{
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isCredentialsNonExpired()
+//	{
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isEnabled()
+//	{
+//		return true;
+//	}
 
 }
 
