@@ -17,17 +17,17 @@ export class TodoListComponent implements OnInit {
   displayedColumns = ['description', 'location', 'date']
  public dataSource;
 
-  
+
   ngOnInit() {
     this.getTodos();
   }
 
   public getTodos() {
-  this.todoService.getAllTodos().subscribe((todos: TodoItems[]) =>{
+  this.todoService.getAllTodos().subscribe((todos: TodoItems[]) => {
       this.todoItems = todos
       console.log(this.todoItems);
       this.dataSource = new MatTableDataSource<TodoItems>(this.todoItems);
-    }); 
+    });
 
   }
 }
