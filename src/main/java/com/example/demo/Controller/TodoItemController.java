@@ -50,9 +50,9 @@ public class TodoItemController
 	public TodoItem save(@RequestBody TodoItem item ) throws ParseException {
 //		return service.save(item);
 
-		createTodos().forEach(todo -> {
-			service.save(todo);
-		});
+//		createTodos().forEach(todo -> {
+//			service.save(todo);
+//		});
 
 		return null;
 	}
