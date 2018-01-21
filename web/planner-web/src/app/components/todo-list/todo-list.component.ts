@@ -8,7 +8,7 @@ import {MatTableDataSource} from '@angular/material';
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
-  providers:[TodoService]
+  providers: [TodoService]
 })
 export class TodoListComponent implements OnInit {
 
