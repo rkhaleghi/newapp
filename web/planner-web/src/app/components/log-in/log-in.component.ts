@@ -11,5 +11,8 @@ export class LogInComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ public logout(){
+   console.log('log out');
+   document.location.href= "https://mail.google.com/mail/u/0/?logout&hl=en";
+ }
 }
