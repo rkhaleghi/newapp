@@ -3,31 +3,30 @@
  */
 package com.example.demo.security;
 
+import static java.util.Optional.empty;
+import static org.springframework.security.core.authority.AuthorityUtils.NO_AUTHORITIES;
+
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties.Jwt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
-import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
-import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.example.demo.model.UserInfo;
 public class OpenIdConnectFilter extends AbstractAuthenticationProcessingFilter {
-    public OAuth2RestOperations restTemplate;
+
+	@Autowired
+	public OAuth2RestOperations restTemplate;
 
     public OpenIdConnectFilter(String defaultFilterProcessesUrl) {
         super(defaultFilterProcessesUrl);
@@ -37,24 +36,27 @@ public class OpenIdConnectFilter extends AbstractAuthenticationProcessingFilter 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
 
-        OAuth2AccessToken accessToken;
-        try {
-            accessToken = restTemplate.getAccessToken();
-        } catch (final OAuth2Exception e) {
-            throw new BadCredentialsException("Could not obtain access token", e);
-        }
-        try {
-            final String idToken = accessToken.getAdditionalInformation().get("id_token").toString();
-            final Jwt tokenDecoded = (Jwt) JwtHelper.decode(idToken);
-            System.out.println("===== : " + ((org.springframework.security.jwt.Jwt) tokenDecoded).getClaims());
+    	final ResponseEntity<UserInfo> userInfoResponseEntity = restTemplate.getForEntity("https://www.googleapis.com/oauth2/v2/userinfo", UserInfo.class);
+        return new PreAuthenticatedAuthenticationToken(userInfoResponseEntity.getBody(), empty(), NO_AUTHORITIES);
 
-            final Map<String, String> authInfo = new ObjectMapper().readValue(((org.springframework.security.jwt.Jwt) tokenDecoded).getClaims(), Map.class);
-
-            final OpenIdConnectUserDetails user = new OpenIdConnectUserDetails(authInfo, accessToken);
-            return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-        } catch (final InvalidTokenException e) {
-            throw new BadCredentialsException("Could not obtain user details from token", e);
-        }
+//        OAuth2AccessToken accessToken;
+//        try {
+//            accessToken = restTemplate.getAccessToken();
+//        } catch (final OAuth2Exception e) {
+//            throw new BadCredentialsException("Could not obtain access token", e);
+//        }
+//        try {
+//            final String idToken = accessToken.getAdditionalInformation().get("id_token").toString();
+//            final Jwt tokenDecoded = (Jwt) JwtHelper.decode(idToken);
+//            System.out.println("===== : " + ((org.springframework.security.jwt.Jwt) tokenDecoded).getClaims());
+//
+//            final Map<String, String> authInfo = new ObjectMapper().readValue(((org.springframework.security.jwt.Jwt) tokenDecoded).getClaims(), Map.class);
+//
+//            final OpenIdConnectUserDetails user = new OpenIdConnectUserDetails(authInfo, accessToken);
+//            return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+//        } catch (final InvalidTokenException e) {
+//            throw new BadCredentialsException("Could not obtain user details from token", e);
+//        }
 
     }
 

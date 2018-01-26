@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.TodoItem;
 import com.example.demo.service.TodoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RestController
 public class TodoItemController
 {
@@ -38,6 +38,11 @@ public class TodoItemController
 	public List<TodoItem> getAllTodo()
 	{
 //		 return service.findAll();
+//		System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+//		UserInfo user = (UserInfo) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		System.out.println(user.getEmail());
+//		System.out.println(user.getGender());
+//		System.out.println(user.getPicture());
 		return this.todos;
 	}
 

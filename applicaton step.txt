@@ -1,0 +1,10 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/horsedb
+        username: postgres
+        password: password
+		
+		
+		
+		
+		// MIGHT NEED THIS
+		
+ /.......jpa.database-platform= org.hibernate.dialect.PostgreSQLDialect
