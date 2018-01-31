@@ -22,6 +22,7 @@ import com.example.demo.service.TodoService;
 
 @CrossOrigin("*")
 @RestController
+@RequestMapping(value = "/api/v1")
 public class TodoItemController
 {
 

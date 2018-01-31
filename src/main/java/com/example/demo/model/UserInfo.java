@@ -12,14 +12,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class UserInfo {
 
-	private final String id;
-    private final String name;
-    private final String givenName;
-    private final String familyName;
-    private final String gender;
-    private final String picture;
-    private final String link;
-    private final String email;
+	private  String id;
+    private String name;
+    private  String givenName;
+    private  String familyName;
+    private  String gender;
+    private  String picture;
+    private  String link;
+    private  String email;
 
     @JsonCreator
     public UserInfo(
@@ -40,6 +40,14 @@ public class UserInfo {
         this.link = link;
         this.email = email;
     }
+
+    /**
+	 *
+	 */
+	public UserInfo()
+	{
+		// TODO Auto-generated constructor stub
+	}
 
 
     public String getId()

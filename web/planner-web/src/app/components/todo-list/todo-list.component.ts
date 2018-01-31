@@ -25,7 +25,7 @@ export class TodoListComponent implements OnInit {
   public getTodos() {
   this.todoService.getAllTodos().subscribe((todos: TodoItems[]) => {
       this.todoItems = todos
-      console.log(this.todoItems);
+      console.log(todos);
       this.dataSource = new MatTableDataSource<TodoItems>(this.todoItems);
     });
 

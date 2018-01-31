@@ -1,17 +1,23 @@
 package com.example.demo.Controller;
 
-import java.security.Principal;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.UserInfo;
+import com.example.demo.security.principle.Principal;
+
 @RestController
+@RequestMapping(value = "/api/v1")
 public class AuthController {
 
+	@Autowired
+	private Principal principal;
 
 	@RequestMapping("/login")
-	public Principal getUserInfo(Principal principal){
-        return principal;
+	public UserInfo getUserInfo(){
+		return principal.getUserInfo();
+
 	}
 
 }
