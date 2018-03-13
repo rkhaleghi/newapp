@@ -7,7 +7,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 const routes: Routes = [
   {path: '', component: LogInComponent},
   {path: 'create', component: CreateTodoComponent},
-  {path: 'api/v1/todos', component: TodoListComponent}
+  {path: 'todos', component: TodoListComponent}
 ]
 
 @NgModule({

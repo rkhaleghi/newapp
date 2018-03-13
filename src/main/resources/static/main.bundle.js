@@ -80,7 +80,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n\n"
+module.exports = "<router-outlet></router-outlet>\r\n\r\n"
 
 /***/ }),
 
@@ -202,7 +202,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/create-todo/create-todo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <textarea matInput placeholder=\"Description\"></textarea>\n  </mat-form-field>\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Location\" value=\"\">\n  </mat-form-field>\n  <input type=\"submit\" value=\"Add Todo\">\n</form>"
+module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <textarea matInput placeholder=\"Description\"></textarea>\r\n  </mat-form-field>\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Location\" value=\"\">\r\n  </mat-form-field>\r\n  <input type=\"submit\" value=\"Add Todo\">\r\n</form>"
 
 /***/ }),
 
@@ -263,7 +263,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/log-in/log-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n    This is from angular\n</p>\n<button (click)=login()>login</button>\n\n<button (click)=\"logout()\">logout</button>\n"
+module.exports = "<p>\r\n    This is from angular\r\n</p>\r\n<button (click)=login()>login</button>\r\n\r\n<button (click)=\"logout()\">logout</button>\r\n"
 
 /***/ }),
 
@@ -322,7 +322,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* .example-container {\n    display: flex;\n    flex-direction: column;\n    max-height: 500px;\n    min-width: 300px;\n  }\n  \n  .mat-table {\n    overflow: auto;\n    max-height: 500px;\n  } */", ""]);
+exports.push([module.i, "/* .example-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    max-height: 500px;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  } */", ""]);
 
 // exports
 
@@ -335,7 +335,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/todo-list/todo-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <mat-table #table [dataSource]=\"dataSource\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"description\">\n      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.description}} </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"location\">\n      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.location}} </mat-cell>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"date\">\n      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.date | date}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n</div>"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table #table [dataSource]=\"dataSource\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"description\">\r\n      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.description}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"location\">\r\n      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.location}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"date\">\r\n      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.date | date}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n  </mat-table>\r\n</div>"
 
 /***/ }),
 
